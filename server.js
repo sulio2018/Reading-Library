@@ -3,7 +3,7 @@ const mongoose = require ("mongoose");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const apiRoutes = require("./routes/api-routes");
+const apiRoutes = require("./routes/apiRoutes");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +18,6 @@ app.use("/api", apiRoutes);
 
 // Connect to MongoDB
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
-
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Send every other request to the React app
